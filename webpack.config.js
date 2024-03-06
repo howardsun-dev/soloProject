@@ -5,7 +5,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: '/src/index.js',
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   plugins: [
@@ -42,6 +42,6 @@ module.exports = {
     port: 8080,
     historyApiFallback: true, // Useful for single-page applications
     open: true, // Automatically open the browser
-    // proxy: [{ context: ['/api'], target: 'http://localhost:3000' }],
+    proxy: [{ context: ['/api'], target: 'http://localhost:3000' }],
   },
 };
