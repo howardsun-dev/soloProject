@@ -9,7 +9,10 @@ router.get('/', (req, res) => {
 
 router.get('/weather', async (req, res) => {
   try {
-    const { latitude, longitude } = req.body;
+    const { latitude, longitude } = req.query;
+    // console.log(req.body)
+
+    console.log('This is the Location', latitude, longitude);
     /* axios as structure of 
             data
             status (http code)
@@ -18,6 +21,11 @@ router.get('/weather', async (req, res) => {
             config
             request 
      */
+
+    if (!latitude || !longitude) {
+      return res.status(400).json({ error: 'Coordinates required' });
+    }
+
     const response = await axios.get(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m`
     );
@@ -27,10 +35,12 @@ router.get('/weather', async (req, res) => {
     return res.json(data);
   } catch (error) {
     next({
-        log: `Weather middleware had an error occur: ${error}`,
-        status: 500,
-        message: { err: 'An error occured getting weather, check logs for details' },
-    })
+      log: `Weather middleware had an error occur: ${error}`,
+      status: 500,
+      message: {
+        err: 'An error occured getting weather, check logs for details',
+      },
+    });
   }
 });
 
