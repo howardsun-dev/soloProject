@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.scss';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello world!</h1>
-        <h2>this is the second try</h2>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div>
+      <h1>Hello world!</h1>
+      <h2>Automatic render using createRoot</h2>
+    </div>
+  );
+};
 
-export default App;
+const root = createRoot(document.querySelector('#root'));
+root.render(<App />);

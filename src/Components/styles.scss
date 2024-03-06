@@ -1,0 +1,28 @@
+// style.scss
+
+// Variables
+$background-color: #ec8f4c;
+$card-color: #b6e2f1;
+$border-radius: 10px;
+
+// Styles
+body {
+  background-color: $background-color;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; // Choose your desired font
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background-color: $card-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Add a subtle shadow
+}
