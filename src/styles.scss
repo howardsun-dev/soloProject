@@ -27,12 +27,30 @@ header {
   align-items: center;
 }
 
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%); /* Start above the screen */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* End at the natural position */
+    opacity: 1;
+  }
+}
+
+.logo-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInFromTop 2s ease-out forwards; /* Customize duration and easing here */
+}
+
 .card {
   background-color: $card-color;
   border-radius: $border-radius;
   padding: 20px;
   margin: 10px;
-  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 4px 8px rgba(255, 255, 255, 0.4);
 }
 
 .form-container {
@@ -45,24 +63,31 @@ header {
   // min-height: 100vh; // 
 }
 
+.error {
+  display: flex;
+  color: #007bff;
+  text-align: center;
+  margin: auto;
+}
+
 .textbox-container {
   display: flex;
-  // flex-direction: row; // Stack children vertically
+  flex-direction: row; // Stack children vertically
   justify-content: center; // Center vertically in the container
   align-items: center; // Center horizontally in the container
   width: 100%; // Take full width of its parent
   margin: auto;
-  min-height: 20vh; // 
+  min-height: 20vh;
 }
 
 .rounded-input {
   border-radius: 10px; // Adjust the value to change the roundness
   padding: 8px;
   margin: 5px;
-  border: 1px solid #ccc; // Optional: Add border for better visibility
+  border: 1px solid #ccc; // Add border for better visibility
 
   &:focus {
-    outline: none; // Optional: Remove default focus outline
+    outline: none; // Remove default focus outline
   }
 }
 
@@ -70,12 +95,12 @@ header {
   border-radius: 10px; // Adjust the value to change the roundness
   padding: 8px 16px;
   margin: 5px;
-  background-color: #007bff; // Optional: Change background color
-  color: white; // Optional: Change text color
-  border: none; // Optional: Remove border
+  background-color: #007bff; // Change background color
+  color: white; // Change text color
+  border: none; // Remove border
   cursor: pointer;
 
   &:hover {
-    background-color: #0056b3; // Optional: Change background color on hover
+    background-color: #0056b3; // Change background color on hover
   }
 }

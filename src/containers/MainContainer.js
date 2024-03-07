@@ -53,18 +53,16 @@ const MainContainer = () => {
   };
 
   return (
-    <div className='form-container'>
-
+    <div className="form-container">
+      {error && <p className="error">{error}</p>}
       <TextBox
-        error={error}
         handleSubmit={handleSubmit}
         longitude={longitude}
         setLongitude={setLongitude}
         latitude={latitude}
         setLatitude={setLatitude}
-      />
+        />
       <Cards weatherData={weatherData} />
-
     </div>
   );
 };

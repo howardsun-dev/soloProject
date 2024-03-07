@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TextBox = ({
-  error,
   handleSubmit,
   longitude,
   setLongitude,
@@ -10,7 +9,6 @@ const TextBox = ({
 }) => {
   return (
     <div className="textbox-container">
-      {error && <p className="error">{error}</p>}
       <form onSubmit={handleSubmit}>
         <input
           className="rounded-input"

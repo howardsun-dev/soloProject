@@ -10,7 +10,15 @@ const App = () => {
   return (
     <div>
       <header>
-        <h1><center><img src={logo} alt='Logo' height={400} width={400}/></center></h1>
+        <h1>
+          <img
+            src={logo}
+            alt="Logo"
+            height={400}
+            width={400}
+            className="logo-animation"
+          />
+        </h1>
       </header>
       <MainContainer />
     </div>
