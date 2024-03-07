@@ -120,16 +120,22 @@ header {
   padding: 20px;
   margin: 10px;
   min-width: 800px;
-  min-height: 400px;
+  // min-height: 400px;
+  // width: auto;
+  height: auto;
   box-shadow: 5px 4px 8px rgba(255, 255, 255, 0.4);
 
-  a {
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // Align items to the start of the flex container
 
-    &:hover {
-      color: #0056b3;
+    .view-chart-link {
+      align-self: flex-end; // Align the link to the end of the flex container (right)
+      text-decoration: underline;
+      cursor: pointer;
+      color: #007bff; // Example link color
+      margin: 10px 0; // Adjust spacing as needed
     }
   }
 }

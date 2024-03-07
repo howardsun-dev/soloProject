@@ -36,11 +36,12 @@ const Cards = ({ weatherData }) => {
   const { current, hourly } = weatherData;
   const { time, temperature_2m, wind_speed_10m } = current;
   const timeGMT = time.concat('Z');
-  const labels = hourly.time.map((element) =>
-    element.concat('Z').toLocaleString()
-  );
+  const labels = hourly.time.map((element) => {
+    const date = new Date(element + 'Z');
+    return date.toLocaleString();
+  });
 
-  const toggleModal = () => [setModalOpen(!isModalOpen)];
+  const toggleModal = () => setModalOpen(!isModalOpen);
 
   const data = {
     labels,
@@ -117,18 +118,20 @@ const Cards = ({ weatherData }) => {
     timeZoneName: 'short',
   });
 
-  // console.log(weatherData);
+  console.log(labels);
 
   return (
     <div className="card-container">
       <div className="card">
-        <p>Last Update: {readableTime}</p>
-        <p>Temperature (2m): {temperature_2m} °F</p>
-        <p>Wind Speed: {wind_speed_10m} mp/h</p>
-        {/* <a href='#' onClick={toggleModal}>View Chart</a> */}
-        {/* <Modal isOpen={isModalOpen} onClose={toggleModal}> */}
-        <Chart type="line" data={data} options={options} />
-        {/* </Modal> */}
+        <div className="card-header">
+          <p>Last Update: {readableTime}</p>
+          <p>Temperature (2m): {temperature_2m} °F</p>
+          <p>Wind Speed: {wind_speed_10m} mp/h</p>
+          <a href="#" className="view-chart-link" onClick={toggleModal}>
+            View Hourly Chart
+          </a>
+        </div>
+        {isModalOpen && <Chart type="line" data={data} options={options} />}
       </div>
     </div>
   );

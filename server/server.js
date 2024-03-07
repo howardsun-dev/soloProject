@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
 // Router handlers
 app.use('/api', apiRouter);
 
+
+// Unknown route handler
+app.use((req, res) => res.sendStatus(404));
+
 /**
  * express error handler
  * @see https://expressjs.com/en/guide/error-handling.html#writing-error-handlers
