@@ -42,16 +42,20 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: slideInFromTop 2s ease-out forwards; /* Customize duration and easing here */
+  animation: slideInFromTop 2s ease-out forwards;
+  /* Customize duration and easing here */
 }
 
 @keyframes slideInFromTop {
   0% {
-    transform: translateY(-100%); /* Start above the screen */
+    transform: translateY(-100%);
+    /* Start above the screen */
     opacity: 0;
   }
+
   100% {
-    transform: translateY(0); /* End at the natural position */
+    transform: translateY(0);
+    /* End at the natural position */
     opacity: 1;
   }
 }
@@ -89,7 +93,7 @@ header {
   padding: 8px;
   margin: 5px;
   border: 1px solid #ccc; // Add border for better visibility
-  
+
   &:focus {
     outline: none; // Remove default focus outline
   }
@@ -103,7 +107,7 @@ header {
   color: white; // Change text color
   border: none; // Remove border
   cursor: pointer;
-  
+
   &:hover {
     background-color: #0056b3; // Change background color on hover
   }
@@ -112,7 +116,20 @@ header {
 .card {
   background-color: $card-color;
   border-radius: $border-radius;
+  color: #aa4700;
   padding: 20px;
   margin: 10px;
+  min-width: 800px;
+  min-height: 400px;
   box-shadow: 5px 4px 8px rgba(255, 255, 255, 0.4);
+
+  a {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: #0056b3;
+    }
+  }
 }

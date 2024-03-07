@@ -54,14 +54,15 @@ const MainContainer = () => {
 
   return (
     <div className="form-container">
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error}</p>}{' '}
+      {/* Conditionally display an error message */}
       <TextBox
         handleSubmit={handleSubmit}
         longitude={longitude}
         setLongitude={setLongitude}
         latitude={latitude}
         setLatitude={setLatitude}
-        />
+      />
       <Cards weatherData={weatherData} />
     </div>
   );
