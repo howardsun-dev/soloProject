@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { createRoot } from 'react-dom/client';
 import MainContainer from './containers/MainContainer';
+import logo from './assets/images/logo.png';
 import './styles.scss';
+
+// const logo = lazy(() => import('./assets/images/logo.png'))
 
 const App = () => {
   return (
     <div>
-      <h1>Weather Travel App</h1>
+      <header>
+        <h1><img src={logo} alt='Logo' /></h1>
+      </header>
       <MainContainer />
     </div>
   );

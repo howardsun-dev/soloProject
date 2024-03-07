@@ -11,11 +11,13 @@
 
 import React, { useState, useEffect } from 'react';
 import Cards from '../components/Cards';
+import TextBox from '../components/TextBox';
 import axios from 'axios';
 
 const MainContainer = () => {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [error, setError] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
 
   //   const handleInput = (e) => {
@@ -35,31 +37,34 @@ const MainContainer = () => {
       setWeatherData(response.data);
     } catch (error) {
       console.error('Error fetching weather data: ', error);
+      setError('Error fetching weather data. Please try again later.');
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!latitude || !longitude) {
+      setError('Please enter both latitude and longitude');
+      return;
+    }
+
     fetchWeather();
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter Latitude"
-          value={latitude}
-          onChange={(e) => setLatitude(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Enter Longitude"
-          value={longitude}
-          onChange={(e) => setLongitude(e.target.value)}
-        />
-        <button type="submit">Fetch Weather</button>
-      </form>
+    <div className='form-container'>
+
+      <TextBox
+        error={error}
+        handleSubmit={handleSubmit}
+        longitude={longitude}
+        setLongitude={setLongitude}
+        latitude={latitude}
+        setLatitude={setLatitude}
+      />
+      <Cards weatherData={weatherData} />
+
     </div>
   );
 };

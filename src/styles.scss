@@ -1,8 +1,6 @@
-// style.scss
-
 // Variables
 $background-color: #ec8f4c;
-$card-color: #b6e2f1;
+$card-color: #aeebff;
 $border-radius: 10px;
 
 // Styles
@@ -11,16 +9,22 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif; // Choose your desired font
+  display: flex;
+  justify-content: center; // Center content horizontally
+  align-items: center; // Center content vertically
+  min-height: 100vh; // Ensure full viewport height
 }
 
 header {
-  color:darkturquoise
+  color: darkturquoise;
+  justify-content: center;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .card {
@@ -28,5 +32,50 @@ header {
   border-radius: $border-radius;
   padding: 20px;
   margin: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Add a subtle shadow
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column; // Stack children vertically
+  justify-content: center; // Center vertically in the container
+  align-items: center; // Center horizontally in the container
+  width: 100%; // Take full width of its parent
+  // margin: auto;
+  // min-height: 100vh; // 
+}
+
+.textbox-container {
+  display: flex;
+  // flex-direction: row; // Stack children vertically
+  justify-content: center; // Center vertically in the container
+  align-items: center; // Center horizontally in the container
+  width: 100%; // Take full width of its parent
+  margin: auto;
+  min-height: 20vh; // 
+}
+
+.rounded-input {
+  border-radius: 10px; // Adjust the value to change the roundness
+  padding: 8px;
+  margin: 5px;
+  border: 1px solid #ccc; // Optional: Add border for better visibility
+
+  &:focus {
+    outline: none; // Optional: Remove default focus outline
+  }
+}
+
+.rounded-button {
+  border-radius: 10px; // Adjust the value to change the roundness
+  padding: 8px 16px;
+  margin: 5px;
+  background-color: #007bff; // Optional: Change background color
+  color: white; // Optional: Change text color
+  border: none; // Optional: Remove border
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3; // Optional: Change background color on hover
+  }
 }
