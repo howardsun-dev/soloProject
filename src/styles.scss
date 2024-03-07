@@ -4,6 +4,17 @@ $card-color: #aeebff;
 $border-radius: 10px;
 
 // Styles
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 5s forwards;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
 body {
   background-color: $background-color;
   margin: 0;
@@ -27,6 +38,13 @@ header {
   align-items: center;
 }
 
+.logo-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideInFromTop 2s ease-out forwards; /* Customize duration and easing here */
+}
+
 @keyframes slideInFromTop {
   0% {
     transform: translateY(-100%); /* Start above the screen */
@@ -36,21 +54,6 @@ header {
     transform: translateY(0); /* End at the natural position */
     opacity: 1;
   }
-}
-
-.logo-animation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: slideInFromTop 2s ease-out forwards; /* Customize duration and easing here */
-}
-
-.card {
-  background-color: $card-color;
-  border-radius: $border-radius;
-  padding: 20px;
-  margin: 10px;
-  box-shadow: 5px 4px 8px rgba(255, 255, 255, 0.4);
 }
 
 .form-container {
@@ -63,12 +66,6 @@ header {
   // min-height: 100vh; // 
 }
 
-.error {
-  display: flex;
-  color: #007bff;
-  text-align: center;
-  margin: auto;
-}
 
 .textbox-container {
   display: flex;
@@ -80,12 +77,19 @@ header {
   min-height: 20vh;
 }
 
+.error {
+  display: flex;
+  color: #007bff;
+  text-align: center;
+  margin: auto;
+}
+
 .rounded-input {
   border-radius: 10px; // Adjust the value to change the roundness
   padding: 8px;
   margin: 5px;
   border: 1px solid #ccc; // Add border for better visibility
-
+  
   &:focus {
     outline: none; // Remove default focus outline
   }
@@ -99,8 +103,16 @@ header {
   color: white; // Change text color
   border: none; // Remove border
   cursor: pointer;
-
+  
   &:hover {
     background-color: #0056b3; // Change background color on hover
   }
+}
+
+.card {
+  background-color: $card-color;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 5px 4px 8px rgba(255, 255, 255, 0.4);
 }

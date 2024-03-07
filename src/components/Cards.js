@@ -1,4 +1,5 @@
 import React from 'react';
+import { Line, Bar } from 'react-chartjs-2';
 
 const Cards = ({ weatherData }) => {
   if (!weatherData || !weatherData.current) {
