@@ -43,7 +43,6 @@ header {
   justify-content: center;
   align-items: center;
   animation: slideInFromTop 2s ease-out forwards;
-  /* Customize duration and easing here */
 }
 
 @keyframes slideInFromTop {
@@ -134,8 +133,8 @@ header {
       align-self: flex-end; // Align the link to the end of the flex container (right)
       text-decoration: underline;
       cursor: pointer;
-      color: #007bff; // Example link color
-      margin: 10px 0; // Adjust spacing as needed
+      color: #007bff;
+      margin: 10px 0;
     }
   }
 }
