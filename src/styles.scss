@@ -138,3 +138,473 @@ header {
     }
   }
 }
+
+.location-title {
+  margin: 0 0 10px 0;
+  color: #007bff;
+  font-size: 1.5rem;
+}
+
+.daily-summary {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+
+  h4 {
+    margin: 0 0 15px 0;
+    color: #333;
+  }
+}
+
+.daily-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.daily-card {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 140px;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+
+  .daily-date {
+    display: block;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+
+  .daily-weather {
+    display: block;
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+  }
+
+  .daily-temps {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+
+    .high {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+
+    .low {
+      color: #3498db;
+      font-weight: bold;
+    }
+  }
+
+  .daily-precip {
+    display: block;
+    font-size: 0.75rem;
+    color: #2980b9;
+  }
+}
+
+// TextBox styles
+.textbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+  }
+}
+
+.date-inputs {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+
+  .input-group {
+    flex: 1;
+  }
+}
+
+.submit-button {
+  margin-top: 10px;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 20px;
+  color: #007bff;
+  font-size: 1.1rem;
+}
+
+.results-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  margin-bottom: 20px;
+
+  .tab-button {
+    flex: 1;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.2s;
+
+    &:hover:not(:disabled) {
+      color: #007bff;
+      background: #f5f5f5;
+    }
+
+    &.active {
+      color: #007bff;
+      border-bottom-color: #007bff;
+    }
+
+    &:disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Hotel List styles
+.hotel-list-container {
+  .hotel-summary {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+
+    h3 {
+      margin: 0 0 5px 0;
+      color: #333;
+    }
+
+    p {
+      margin: 0;
+      color: #666;
+    }
+  }
+}
+
+.hotel-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hotel-card {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+
+  .hotel-image {
+    width: 200px;
+    height: 150px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .placeholder-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      background: #f0f0f0;
+    }
+  }
+
+  .hotel-info {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h4 {
+      margin: 0 0 8px 0;
+      color: #333;
+      font-size: 1.2rem;
+    }
+
+    .hotel-address {
+      margin: 0 0 12px 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .hotel-rating {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+
+      .stars {
+        color: #f39c12;
+        font-size: 1.1rem;
+      }
+
+      .rating-value {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .review-count {
+        color: #999;
+        font-size: 0.85rem;
+      }
+    }
+
+    .hotel-amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      .amenity-tag {
+        background: #e8f4fd;
+        color: #007bff;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+      }
+    }
+  }
+
+  .hotel-pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    min-width: 160px;
+    background: #f8f9fa;
+    border-left: 1px solid #eee;
+
+    .price-per-night {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 8px;
+
+      .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #27ae60;
+      }
+
+      .per-night {
+        color: #999;
+        font-size: 0.85rem;
+        margin-left: 2px;
+      }
+    }
+
+    .total-price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+
+      .label {
+        font-size: 0.75rem;
+        color: #999;
+        text-transform: uppercase;
+      }
+
+      .total {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+      }
+    }
+
+    .book-button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #0056b3;
+      }
+    }
+  }
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+// Itinerary styles
+.itinerary-container {
+  .itinerary-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #eee;
+
+    h3 {
+      margin: 0 0 5px 0;
+      color: #333;
+    }
+
+    .itinerary-subtitle {
+      margin: 0;
+      color: #666;
+      font-style: italic;
+    }
+  }
+}
+
+.itinerary-day {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+  overflow: hidden;
+
+  .day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #eef2f7;
+    }
+
+    .day-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .day-number {
+        font-weight: bold;
+        color: #007bff;
+        font-size: 1.1rem;
+      }
+
+      .day-date {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .day-weather {
+        color: #333;
+        font-size: 0.85rem;
+        font-style: italic;
+      }
+    }
+
+    .expand-icon {
+      font-size: 1.2rem;
+      color: #007bff;
+      transition: transform 0.2s;
+    }
+  }
+
+  .day-details {
+    padding: 20px;
+    border-top: 1px solid #eee;
+
+    .activity-block {
+      margin-bottom: 15px;
+      padding: 12px 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border-left: 3px solid #007bff;
+
+      h5 {
+        margin: 0 0 8px 0;
+        color: #333;
+        font-size: 0.95rem;
+      }
+
+      p {
+        margin: 0;
+        color: #555;
+        line-height: 1.5;
+      }
+    }
+
+    .day-tips {
+      padding: 12px 15px;
+      background: #fff3cd;
+      border-radius: 8px;
+      border-left: 3px solid #f39c12;
+
+      h5 {
+        margin: 0 0 8px 0;
+        color: #856404;
+        font-size: 0.95rem;
+      }
+
+      p {
+        margin: 0;
+        color: #856404;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.itinerary-text {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  white-space: pre-wrap;
+  line-height: 1.6;
+}
