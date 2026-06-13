@@ -4,25 +4,31 @@ const weatherController = {};
 
 weatherController.getWeather = async (req, res, next) => {
   try {
-    const { latitude, longitude } = req.query;
-    console.log(req.body);
-
-    console.log('This is the Location 📍', latitude, longitude);
-    /* axios as structure of 
-                data
-                status (http code)
-                statusText (OK/NotFound)
-                headers
-                config
-                request 
-         */
+    const { latitude, longitude, checkIn, checkOut } = req.query;
 
     if (!latitude || !longitude) {
       return res.status(400).json({ error: 'Coordinates required' });
     }
-    // https://api.open-meteo.com/v1/forecast?latitude=41.875&longitude=72.875&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,precipitation,wind_speed_10m,wind_direction_10m,temperature_80m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch
+
+    // Build the Open-Meteo API URL with daily forecast
+    const params = new URLSearchParams({
+      latitude,
+      longitude,
+      current: 'temperature_2m,wind_speed_10m',
+      hourly: 'temperature_2m,precipitation,wind_speed_10m,wind_direction_10m,temperature_80m',
+      daily: 'temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode',
+      temperature_unit: 'fahrenheit',
+      wind_speed_unit: 'mph',
+      precipitation_unit: 'inch',
+      timezone: 'auto',
+    });
+
+    // Add date range if provided
+    if (checkIn) params.append('start_date', checkIn);
+    if (checkOut) params.append('end_date', checkOut);
+
     const response = await axios.get(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,precipitation,wind_speed_10m,wind_direction_10m,temperature_80m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch`
+      `https://api.open-meteo.com/v1/forecast?${params.toString()}`
     );
 
     res.locals.weatherData = response.data;

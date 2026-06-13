@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const app = express();
 const path = require('path');
 
@@ -14,8 +15,8 @@ console.log(path.join(__dirname, '../index.html'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// statically serve everything in the build folder on the route '/build'
-app.use('/dist', express.static(path.join(__dirname, '../dist')));
+// statically serve everything in the build folder
+app.use(express.static(path.join(__dirname, '../dist')));
 // serve index.html on the route '/'
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.join(__dirname, '../dist/index.html'));
